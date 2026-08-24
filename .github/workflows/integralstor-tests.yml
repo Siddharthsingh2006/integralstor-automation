@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "30 18 * * *"
 
 jobs:
   integralstor-full-flow:
