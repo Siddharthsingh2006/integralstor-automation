@@ -29,6 +29,9 @@ jobs:
           python -m playwright install chromium
 
       - name: Run IntegralStor full flow
+        env:
+          INTEGRALSTOR_USER: ${{ secrets.INTEGRALSTOR_USER }}
+          INTEGRALSTOR_PASSWORD: ${{ secrets.INTEGRALSTOR_PASSWORD }}
         run: |
           mkdir -p reports
           pytest -v tests/test_full_flow_dataset_inspect.py \
