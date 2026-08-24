@@ -44,3 +44,15 @@ jobs:
         with:
           name: integralstor-full-flow-report
           path: reports/integralstor_full_flow.html
+
+      - name: Upload Playwright failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-failure-artifacts
+          path: |
+            test-results/
+            screenshots/
+            videos/
+            traces/
+          if-no-files-found: ignore
