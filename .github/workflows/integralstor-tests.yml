@@ -31,6 +31,9 @@ jobs:
           python -m playwright install chromium
 
       - name: IntegralStor pre-flight health check
+        env:
+          INTEGRALSTOR_USER: ${{ secrets.INTEGRALSTOR_USER }}
+          INTEGRALSTOR_PASSWORD: ${{ secrets.INTEGRALSTOR_PASSWORD }}
         run: |
           pytest -v tests/test_preflight.py
 
