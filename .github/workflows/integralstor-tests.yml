@@ -30,6 +30,11 @@ jobs:
         run: |
           python -m playwright install chromium
 
+      - name: IntegralStor pre-flight health check
+        run: |
+          pytest -v tests/test_preflight.py
+
+
       - name: Run IntegralStor full flow
         env:
           INTEGRALSTOR_USER: ${{ secrets.INTEGRALSTOR_USER }}
